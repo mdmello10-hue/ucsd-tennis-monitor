@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ucsd-tennis-monitor"
+version = "0.1.0"
+description = "Personal UCSD Recreation tennis court availability monitor with Google Calendar filtering and Gmail alerts."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "beautifulsoup4>=4.12",
+    "google-api-python-client>=2.125",
+    "google-auth>=2.29",
+    "google-auth-oauthlib>=1.2",
+    "playwright>=1.43",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
