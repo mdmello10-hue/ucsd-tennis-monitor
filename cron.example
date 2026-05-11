@@ -1,5 +1,5 @@
-# Run every 5 minutes on your local Mac.
+# Run once daily at 8:00 AM on your local Mac.
 # Install with: crontab -e
 #
 # Replace the path if you move this project.
-*/5 * * * * cd "/Users/matthewdmello/Documents/New project 2" && /bin/bash -lc 'source .venv/bin/activate && python -m ucsd_tennis_monitor.monitor --once >> .ucsd-tennis-monitor/cron.log 2>&1'
+0 8 * * * cd "/Users/matthewdmello/Documents/New project 2" && /bin/bash -lc 'source .venv/bin/activate && python -m ucsd_tennis_monitor.monitor --once >> .ucsd-tennis-monitor/cron.log 2>&1'
