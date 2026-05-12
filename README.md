@@ -50,7 +50,28 @@ Install the example schedule:
 crontab -e
 ```
 
-Then paste the line from `cron.example`. It runs every 5 minutes and appends logs to `.ucsd-tennis-monitor/cron.log`.
+Then paste the line from `cron.example`. It runs once daily on your Mac and appends logs to `.ucsd-tennis-monitor/cron.log`.
+
+## GitHub Actions
+
+Use GitHub Actions when you want the monitor to run even if your Mac is asleep. The workflow in `.github/workflows/ucsd-tennis-monitor.yml` runs daily at 8:00 AM America/Los_Angeles and can also be started manually from the repository's Actions tab.
+
+Add these repository secrets in GitHub under **Settings -> Secrets and variables -> Actions**:
+
+- `UCSD_REC_USERNAME`
+- `UCSD_REC_PASSWORD`
+- `GMAIL_USER`
+- `GMAIL_APP_PASSWORD`
+- `ALERT_TO`
+- `GOOGLE_CREDENTIALS_JSON`: contents of local `credentials.json`
+- `GOOGLE_TOKEN_JSON`: contents of local `.ucsd-tennis-monitor/google-token.json`
+
+Optional secrets:
+
+- `GOOGLE_CALENDAR_IDS`: defaults to `primary`
+- `POLL_DAYS`: defaults to `3`
+
+The first GitHub Actions run may send a fresh summary because it starts with an empty cloud state. After that, the workflow caches `.ucsd-tennis-monitor/state.sqlite3` so it only emails newly opened or reopened slots.
 
 ## Notes
 

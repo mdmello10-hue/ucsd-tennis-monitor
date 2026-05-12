@@ -6,11 +6,11 @@ from ucsd_tennis_monitor.parsing import parse_dates, parse_facilities, parse_slo
 
 def test_parse_dates_from_data_attributes_and_hidden_text():
     html = """
-    <button data-year="2026" data-month="5" data-day="10">May 10</button>
-    <input id="hdnDateSelectorDateText" value="Mon, May 11 2026" />
+    <button data-year="2099" data-month="5" data-day="10">May 10</button>
+    <input id="hdnDateSelectorDateText" value="Mon, May 11 2099" />
     """
 
-    assert parse_dates(html, "America/Los_Angeles")[:2] == [date(2026, 5, 10), date(2026, 5, 11)]
+    assert parse_dates(html, "America/Los_Angeles")[:2] == [date(2099, 5, 10), date(2099, 5, 11)]
 
 
 def test_parse_facilities_from_buttons():
