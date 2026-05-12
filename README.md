@@ -54,7 +54,7 @@ Then paste the line from `cron.example`. It runs once daily on your Mac and appe
 
 ## GitHub Actions
 
-Use GitHub Actions when you want the monitor to run even if your Mac is asleep. The workflow in `.github/workflows/ucsd-tennis-monitor.yml` runs daily at 8:00 AM America/Los_Angeles and can also be started manually from the repository's Actions tab.
+Use GitHub Actions when you want the monitor to run even if your Mac is asleep. The workflow in `.github/workflows/ucsd-tennis-monitor.yml` runs daily from GitHub's servers at `15:00 UTC`, which is 8:00 AM Los Angeles time during daylight saving time, and can also be started manually from the repository's Actions tab.
 
 Add these repository secrets in GitHub under **Settings -> Secrets and variables -> Actions**:
 

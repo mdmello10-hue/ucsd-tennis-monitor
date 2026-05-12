@@ -3,8 +3,8 @@ name: UCSD Tennis Monitor
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8 * * *"
-      timezone: "America/Los_Angeles"
+    # GitHub Actions cron uses UTC. This is 8:00 AM Los Angeles time during daylight saving time.
+    - cron: "0 15 * * *"
 
 permissions:
   contents: read
